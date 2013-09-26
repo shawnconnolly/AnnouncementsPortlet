@@ -22,9 +22,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.jasig</groupId>
+        <groupId>org.jasig.parent</groupId>
         <artifactId>jasig-parent</artifactId>
-        <version>5</version>
+        <version>35</version>
+        <relativePath/>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -219,7 +220,7 @@
     </dependencies>
 
     <build>
-        <finalName>${pom.artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -233,6 +234,7 @@
                 <groupId>org.codehaus.mojo</groupId>
 
                 <artifactId>jspc-maven-plugin</artifactId>
+                <version>1.4.6</version>
                 <executions>
                     <execution>
                         <id>jspc</id>
@@ -274,28 +276,21 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-
                 <configuration>
                     <webXml>${basedir}/target/jspweb.xml</webXml>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.15</version>
                 <configuration>
                     <workingDirectory>src/main/webapp</workingDirectory>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
-
-
-
 </project>
